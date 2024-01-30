@@ -10,7 +10,7 @@
 	};
 
 	default_transform: keymap_transform_0 {
-		compatible = "zmk, matrix-transform";
+		compatible = "zmk,matrix-transform";
 		columns = <12>;
 		rows = <5>;
 
@@ -30,7 +30,6 @@
                               RC(5,1)                                                                           RC(5,10)
                      RC(5,3)  RC(5,5)  RC(5,4)                                                         RC(5,8)  RC(5,6)  RC(5,7)               
                               RC(5,2)                                                                           RC(5,9)
-                                                       
 		>;
 	};
 
@@ -45,6 +44,44 @@
             , <&pro_micro 16 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)> //row for 5 way
 		    ;
 	};
+
+	encoder_left_h: left_encoder_h {
+        compatible = "alps,ec11";
+        a-gpios = <&pro_micro 7 (GPIO_ACTIVE_HIGH | GPIO_PULL_UP)>;
+        b-gpios = <&pro_micro 6 (GPIO_ACTIVE_HIGH | GPIO_PULL_UP)>;
+        steps = <80>;
+        status = "disabled";
+    };
+
+    encoder_left_v: left_encoder_v {
+        compatible = "alps,ec11";
+        a-gpios = <&pro_micro 9 (GPIO_ACTIVE_HIGH | GPIO_PULL_UP)>;
+        b-gpios = <&pro_micro 8 (GPIO_ACTIVE_HIGH | GPIO_PULL_UP)>;
+        steps = <80>;
+        status = "disabled";
+    };
+
+    encoder_right_h: right_encoder_h {
+        compatible = "alps,ec11";
+        a-gpios = <&pro_micro 7 (GPIO_ACTIVE_HIGH | GPIO_PULL_UP)>;
+        b-gpios = <&pro_micro 6 (GPIO_ACTIVE_HIGH | GPIO_PULL_UP)>;
+        steps = <80>;
+        status = "disabled";
+    };
+
+    encoder_right_v: right_encoder_v {
+        compatible = "alps,ec11";
+        a-gpios = <&pro_micro 9 (GPIO_ACTIVE_HIGH | GPIO_PULL_UP)>;
+        b-gpios = <&pro_micro 8 (GPIO_ACTIVE_HIGH | GPIO_PULL_UP)>;
+        steps = <80>;
+        status = "disabled";
+    };
+
+	sensors {
+        compatible = "zmk,keymap-sensors";
+        sensors = <&encoder_left_h &encoder_left_v &encoder_right_h &encoder_right_v>;
+        triggers-per-rotation = <20>;
+    };
 
 };
 /*
