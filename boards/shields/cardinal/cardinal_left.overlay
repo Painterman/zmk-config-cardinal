@@ -11,11 +11,11 @@
         ;
 };
 
-&left_encoder_h {
+&encoder_left_v {
     status = "okay";
 };
 
 
-&left_encoder_v {
+&encoder_left_h {
     status = "okay";
 };

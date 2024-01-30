@@ -18,10 +18,10 @@
         ;
 };
 
-&right_encoder_v {
+&encoder_right_v {
     status = "okay";
 };
 
-&right_encoder_h {
+&encoder_right_h {
     status = "okay";
 };
