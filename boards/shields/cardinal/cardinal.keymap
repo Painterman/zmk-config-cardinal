@@ -1,0 +1,37 @@
+#include <behaviors.dtsi>
+#include <dt-bindings/zmk/keys.h>
+
+/ {
+    keymap {
+        compatible = "zmk,keymap";
+
+        default_layer {
+        // --------------------------------------------------------------------------------------------------------------------------------------------------------------------
+        //Testing layout, not configured at all
+        //   |   ESC   |    Q    |    W    |    E    |    R    |    T    |                       |    Y    |    U    |    I    |    O    |    P    |    \    |
+        //   |   TAB   |    A    |    S    |    D    |    F    |    G    |                       |    H    |    J    |    K    |    L    |    ;    |    '    |
+        //   |  SHIFT  |    Z    |    X    |    C    |    V    |    B    |  (opt)  |   |  (opt)  |    N    |    M    |    ,    |    .    |    /    |  R CTRL |
+        //                                 |  (opt)  |    ALT  | RETURN  |  SPACE  |   |   TAB   |   BSPC  |   WIN   |  (opt)  |
+        // (5 way)     
+            bindings = <
+                &kp ESC    &kp Q    &kp W    &kp E     &kp R     &kp T                           &kp Y     &kp U     &kp I      &kp O     &kp P    &kp BSLH
+                &kp TAB    &kp A    &kp S    &kp D     &kp F     &kp G                           &kp H     &kp J     &kp K      &kp L     &kp SEMI &kp SQT
+                &kp LSHIFT &kp Z    &kp X    &kp C     &kp V     &kp B     &kp K_MUTE &kp K_MUTE &kp N     &kp M     &kp COMMA  &kp DOT   &kp FSLH &kp RCTRL
+                                             &kp HOME  &kp RET   &kp SPACE &kp SPACE  &kp TAB    &kp TAB   &kp BSPC  &kp HOME
+                                 &kp UP                                                                                            &kp UP
+                        &kp LEFT &kp SPACE  &kp RIGHT                                                                    &kp LEFT  &kp SPACE  &kp RIGHT
+                                 &kp DOWN                                                                                          &kp DOWN
+            >;
+
+            sensor-bindings = < &inc_dec_kp C_VOL_UP C_VOL_DN 
+                                &inc_dec_kp PG_UP PG_DN
+                                &inc_dec_kp C_VOL_UP C_VOL_DN 
+                                &inc_dec_kp PG_UP PG_DN
+                             >;
+        };
+    };
+};
+
+
+
+

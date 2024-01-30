@@ -1,0 +1,14 @@
+file_format: "1"
+id: cardinal
+name: Cardinal
+type: shield
+url: https://github.com/Painterman/Cardinal
+requires: [pro_micro]
+exposes: [i2c_oled]
+features:
+  - keys
+  - display
+  - encoder
+siblings:
+  - cardinal_left
+  - cardinal_right
