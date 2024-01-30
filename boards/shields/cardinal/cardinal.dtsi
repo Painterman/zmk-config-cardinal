@@ -46,7 +46,7 @@
 		    ;
 	};
 
-	left_encoder: encoder_left_h {
+	encoder_left_h: encoder_left_h {
         compatible = "alps,ec11";
         label = "encoder_left_h";
         a-gpios = <&pro_micro 7 (GPIO_ACTIVE_HIGH | GPIO_PULL_UP)>;
@@ -55,7 +55,7 @@
         status = "disabled";
     };
 
-    left_encoder: encoder_left_v {
+    encoder_left_v: encoder_left_v {
         compatible = "alps,ec11";
         label = "encoder_left_v";
         a-gpios = <&pro_micro 12 (GPIO_ACTIVE_HIGH | GPIO_PULL_UP)>;
@@ -64,7 +64,7 @@
         status = "disabled";
     };
 
-    right_encoder_encoder: encoder_right_h {
+    encoder_right_h: encoder_right_h {
         compatible = "alps,ec11";
         label = "encoder_right_h";
         a-gpios = <&pro_micro 7 (GPIO_ACTIVE_HIGH | GPIO_PULL_UP)>;
@@ -73,7 +73,7 @@
         status = "disabled";
     };
 
-    right_encoder_encoder: encoder_right_v {
+    encoder_right_v: encoder_right_v {
         compatible = "alps,ec11";
         label = "encoder_right_v";
         a-gpios = <&pro_micro 12 (GPIO_ACTIVE_HIGH | GPIO_PULL_UP)>;
