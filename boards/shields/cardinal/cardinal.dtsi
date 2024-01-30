@@ -48,7 +48,7 @@
 
 	left_encoder: encoder_left_h {
         compatible = "alps,ec11";
-        //label = "LEFT_ENCODER_H";
+        label = "encoder_left_h";
         a-gpios = <&pro_micro 7 (GPIO_ACTIVE_HIGH | GPIO_PULL_UP)>;
         b-gpios = <&pro_micro 6 (GPIO_ACTIVE_HIGH | GPIO_PULL_UP)>;
         steps = <80>;
@@ -57,7 +57,7 @@
 
     left_encoder: encoder_left_v {
         compatible = "alps,ec11";
-        //label = "LEFT_ENCODER_V";
+        label = "encoder_left_v";
         a-gpios = <&pro_micro 12 (GPIO_ACTIVE_HIGH | GPIO_PULL_UP)>;
         b-gpios = <&pro_micro 11 (GPIO_ACTIVE_HIGH | GPIO_PULL_UP)>;
         steps = <80>;
@@ -66,7 +66,7 @@
 
     right_encoder_encoder: encoder_right_h {
         compatible = "alps,ec11";
-        //label = "RIGHT_ENCODER_H";
+        label = "encoder_right_h";
         a-gpios = <&pro_micro 7 (GPIO_ACTIVE_HIGH | GPIO_PULL_UP)>;
         b-gpios = <&pro_micro 6 (GPIO_ACTIVE_HIGH | GPIO_PULL_UP)>;
         steps = <80>;
@@ -75,7 +75,7 @@
 
     right_encoder_encoder: encoder_right_v {
         compatible = "alps,ec11";
-        //label = "RIGHT_ENCODER_V";
+        label = "encoder_right_v";
         a-gpios = <&pro_micro 12 (GPIO_ACTIVE_HIGH | GPIO_PULL_UP)>;
         b-gpios = <&pro_micro 11 (GPIO_ACTIVE_HIGH | GPIO_PULL_UP)>;
         steps = <80>;
