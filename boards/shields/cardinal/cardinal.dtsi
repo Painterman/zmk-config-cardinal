@@ -20,7 +20,11 @@
         // In the opt spaces can be either the 5 way switch or a rotary encoder EWQDG from panasonic, with native support for 2 encoders or 1 encoder + 5 way switch, or you could handwire it #yolo
         // We map the 5 way switch in a funky way, because i can
         //         -1         1        2         3         4         5
-         
+        //1   |   ESC   |    Q    |    W    |    E    |    R    |    T    |                       |    Y    |    U    |    I    |    O    |    P    |    \    |
+        //2   |   TAB   |    A    |    S    |    D    |    F    |    G    |                       |    H    |    J    |    K    |    L    |    ;    |    '    |
+        //3   |  SHIFT  |    Z    |    X    |    C    |    V    |    B    |  (opt)  |   |  (opt)  |    N    |    M    |    ,    |    .    |    /    |  R CTRL |
+        //T                                 |  (opt)  |    ALT  | RETURN  |  SPACE  |   |   TAB   |   BSPC  |   WIN   |  (opt)  |
+        //5 (5 way)
 
 		map = <
 		    RC(0,0)  RC(0,1)  RC(0,2)  RC(0,3)  RC(0,4)  RC(0,5)                     RC(0,6)  RC(0,7)  RC(0,8)  RC(0,9)  RC(0,10) RC(0,11)
@@ -79,7 +83,10 @@
 
 	sensors {
         compatible = "zmk,keymap-sensors";
-        sensors = <&encoder_left_h &encoder_left_v &encoder_right_h &encoder_right_v>;
+        sensors = < &encoder_left_h 
+                    &encoder_left_v 
+                    &encoder_right_h 
+                    &encoder_right_v>;
         triggers-per-rotation = <20>;
     };
 
