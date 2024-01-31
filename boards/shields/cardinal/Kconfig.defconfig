@@ -1,7 +1,7 @@
 # Copyright (c) 2020 The ZMK Contributors
 # SPDX-License-Identifier: MIT
 
-if SHIELD_CRADIO_LEFT
+if SHIELD_CARDINAL_LEFT
 
 config ZMK_KEYBOARD_NAME
 	default "Cardinal"
