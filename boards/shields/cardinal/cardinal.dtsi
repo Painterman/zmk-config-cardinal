@@ -127,7 +127,7 @@
 };
 
 &pro_micro_i2c {
-    status = "disabled";
+    status = "okay";
 
     oled: ssd1306@3c {
         compatible = "solomon,ssd1306fb";
@@ -146,6 +146,8 @@
 };
 
 nice_view_spi: &spi0 {
+    status = "disabled";
+
     compatible = "nordic,nrf-spim";
     pinctrl-0 = <&spi0_default>;
     pinctrl-1 = <&spi0_sleep>;
