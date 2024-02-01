@@ -153,5 +153,4 @@ nice_view_spi: &spi0 {
     pinctrl-1 = <&spi0_sleep>;
     pinctrl-names = "default", "sleep";
     //cs-gpios = <&pro_micro 1 GPIO_ACTIVE_HIGH>;
-    status = "disabled";
 };
