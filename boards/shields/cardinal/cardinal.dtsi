@@ -91,17 +91,33 @@
     };
 
 };
+
+&pinctrl {
+    pro_micro_i2c: pro_micro_i2c {
+        group1 {
+            psels = 
+                    <NRF_PSEL(SPIM_SDA, 0, 8)>,
+                    <NRF_PSEL(SPIM_SCL, 0, 17)>;
+        };
+    };
+};
+
+&pro_micro_i2c {
+    status = "okay";
+
+    oled: ssd1306@3c {
+        compatible = "solomon,ssd1306fb";
+        reg = <0x3c>;
+        width = <128>;
+        height = <64>;
+        segment-offset = <0>;
+        page-offset = <0>;
+        display-offset = <0>;
+        multiplex-ratio = <63>;
+        prechargep = <0x22>;
+    };
+};
 /*
-*&pinctrl {
-*    spi2_default: spi2_default {
-*        group1 {
-*            psels = <NRF_PSEL(SPIM_SCK, 0, 27)>,
-*                    <NRF_PSEL(SPIM_MOSI, 0, 8)>,
-*                    <NRF_PSEL(SPIM_MISO, 0, 22)>;
-*        };
-*    };
-*};
-*
 *&pro_micro_i2c {
 *    status = "okay";
 *    
