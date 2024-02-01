@@ -71,7 +71,7 @@
         b-gpios = <&pro_micro 6 (GPIO_ACTIVE_HIGH | GPIO_PULL_UP)>;
         steps = <80>;
         status = "disabled";
-    };pinctrli2c
+    };
 
     encoder_right_v: right_encoder_v {
         compatible = "alps,ec11";
