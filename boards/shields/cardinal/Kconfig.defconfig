@@ -16,4 +16,17 @@ if SHIELD_CARDINAL_LEFT || SHIELD_CARDINAL_RIGHT
 config ZMK_SPLIT
 	default y
 
+if ZMK_DISPLAY
+
+config I2C
+    default y
+
+config SSD1306
+    default y
+
+config SSD1306_REVERSE_MODE
+    default y
+
+endif # ZMK_DISPLAY
+
 endif
