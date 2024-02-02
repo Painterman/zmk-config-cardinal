@@ -20,6 +20,6 @@
 
 include:
   - board: nice_nano_v2
-    shield: cardinal_left 
+    shield: cardinal_left nice_view
   - board: nice_nano_v2
-    shield: cardinal_right 
+    shield: cardinal_right nice_view
