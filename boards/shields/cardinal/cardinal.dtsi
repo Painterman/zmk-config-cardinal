@@ -127,8 +127,7 @@
 };
 
 &pro_micro_i2c {
-    status = "okay";
-
+    status="okay"
     oled: ssd1306@3c {
         compatible = "solomon,ssd1306fb";
         reg = <0x3c>;
@@ -143,6 +142,12 @@
         //com-sequential;
         prechargep = <0x22>;
     };
+};
+
+
+if CONFIG_NICE_VIEW
+&pro_micro_i2c {
+    status = "disabled"
 };
 
 nice_view_spi: &spi0 {
