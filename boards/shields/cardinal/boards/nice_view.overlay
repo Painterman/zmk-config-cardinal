@@ -1,5 +1,4 @@
-
-
+//Disable the I2C oled when using a nice_view
 &pro_micro_i2c {
     status = "disabled";
 };

@@ -1,7 +1,8 @@
-
-
 config SHIELD_CARDINAL_LEFT
 	def_bool $(shields_list_contains,cardinal_left)
 
 config SHIELD_CARDINAL_RIGHT
 	def_bool $(shields_list_contains,cardinal_right)
+
+config SHIELD_NICE_VIEW
+	def_bool $(shields_list_contains,nice_view)

@@ -1,11 +1,8 @@
 #include "cardinal.dtsi" // Notice that the main dtsi files are included in the overlay.
 
-
 &default_transform {
-    col-offset = <5>;
+    col-offset = <6>;
 };
-
-
 
 &kscan0 {
     col-gpios
