@@ -16,7 +16,7 @@ if SHIELD_CARDINAL_LEFT || SHIELD_CARDINAL_RIGHT
 config ZMK_SPLIT
 	default y
 
-if ZMK_DISPLAY && !SHIELD_NICE_VIEW
+if ZMK_DISPLAY && !NICE_VIEW
 
 config I2C
     default y
@@ -29,7 +29,7 @@ config SSD1306_REVERSE_MODE
 
 endif # ZMK_DISPLAY
 
-if LVGL && !SHIELD_NICE_VIEW
+if LVGL && !NICE_VIEW
 
 config LV_Z_VDB_SIZE
     default 64
