@@ -29,7 +29,7 @@
                                  &kp DOWN                                                                                          &kp DOWN
                     >;
             sensor-bindings = <
-                        &inc_dec_kp LCTRL(LSHIFT(TAB)) LCTRL(TAB) 
+                        &inc_dec_kp LC(LS(TAB)) LCTRL(TAB) 
                         &inc_dec_kp SPACE SPACE 
                         &inc_dec_kp SPACE SPACE 
                         &inc_dec_kp C_VOL_UP C_VOL_DN
