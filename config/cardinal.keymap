@@ -104,7 +104,7 @@
         //                                 |  (opt)  |    ALT  | RETURN  |  SPACE  |   |   TAB   |   BSPC  |   WIN   |  (opt)  |
         // (5 way)     
             bindings = <
-                &kp     &kp Q    &kp W    &kp E     &kp R     &kp T                     &kp Y     &kp U     &kp I      &kp O     &kp P    &kp BSPC
+                &kp ESC    &kp Q    &kp W    &kp E     &kp R     &kp T                     &kp Y     &kp U     &kp I      &kp O     &kp P    &kp BSPC
                 &kp TAB    &kp A    &kp S    &kp D     &kp F     &kp G                     &kp H     &kp J     &kp K      &kp L     &kp SEMI &kp SQT
                 &sk LSHIFT &kp Z    &kp X    &kp C     &kp V     &kp B &trans  &kp C_MUTE  &kp N     &kp M     &kp COMMA &kp DOT   &kp FSLH &kp RCTRL    
                                         &kp TAB  &kp W     &kp E &kp R   &kp SPACE   &kp S     &kp D     &kp F
