@@ -7,15 +7,16 @@
     tapping_term_ms = <200>;
 };
 
-behaviors {
+/ {
+
+    behaviors {
         change_tab: change_tab {
             compatible = "zmk,behavior-sensor-rotate";
             #sensor-binding-cells = <0>;
             bindings = <&kp LC(LS(TAB))>, <&kp LC(TAB)>;
         };
-    };
-
-/ {
+    };  
+    
     keymap {
         compatible = "zmk,keymap";
 
