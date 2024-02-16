@@ -17,27 +17,22 @@
         };
     };  
     
-    #define default_layer 0
-    #define num_layer   1
-    #define fun_layer   2
-    #define ctrl_layer 3
-
     keymap {
         compatible = "zmk,keymap";
 
         default_layer {
         // --------------------------------------------------------------------------------------------------------------------------------------------------------------------
         //Testing layout, not configured at all
-        //   |   ESC   |    Q    |    W    |    E    |    R    |    T    |                       |    Y    |    U    |    I    |    O    |    P    |  BSPC  |
-        //   |   TAB   |    A    |    S    |    D    |    F    |    G    |                       |    H    |    J    |    K    |    L    |    ;    |    '   |
-        //   |  SHIFT  |    Z    |    X    |    C    |    V    |    B    |  (opt)  |   |  (opt)  |    N    |    M    |    ,    |    .    |    /    |  ENTER |
-        //                                 |  (opt)  |   CTRL  | RETURN  |  SPACE  |   |  SPACE  |   BSPC  |   WIN   |  (opt)  |
+        //   |   ESC   |    Q    |    W    |    E    |    R    |    T    |                       |    Y    |    U    |    I    |    O    |    P    |    BSPC    |
+        //   |   TAB   |    A    |    S    |    D    |    F    |    G    |                       |    H    |    J    |    K    |    L    |    ;    |    '    |
+        //   |  SHIFT  |    Z    |    X    |    C    |    V    |    B    |  (opt)  |   |  (opt)  |    N    |    M    |    ,    |    .    |    /    |  R CTRL |
+        //                                 |  (opt)  |    ALT  | RETURN  |  SPACE  |   |   TAB   |   BSPC  |   WIN   |  (opt)  |
         // (5 way)     
             bindings = <
-                &kp ESC         &kp Q    &kp W    &kp E     &kp R     &kp T                              &kp Y     &kp U     &kp I      &kp O     &kp P    &kp BSPC
-                &kp TAB         &kp A    &kp S    &kp D     &kp F     &kp G                              &kp H     &kp J     &kp K      &kp L     &kp SEMI &kp SQT
-                &mt LSHFT NUHS  &kp Z    &kp X    &kp C     &kp V     &kp B     &none        &kp C_MUTE  &kp N     &kp M     &kp COMMA  &kp DOT   &kp FSLH &mt RSHFT ENTER    
-                                              &kp LWIN(TAB) &kp LCTRL &sl 1     &kp SPACE    &kp SPACE   &sl 2     &kp LGUI  &trans
+                &kp ESC    &kp Q    &kp W    &kp E     &kp R     &kp T                         &kp Y     &kp U     &kp I      &kp O     &kp P    &kp BSPC
+                &kp TAB    &kp A    &kp S    &kp D     &kp F     &kp G                         &kp H     &kp J     &kp K      &kp L     &kp SEMI &kp SQT
+                &sk LSHIFT &kp Z    &kp X    &kp C     &kp V     &kp B &none       &kp C_MUTE  &kp N     &kp M     &kp COMMA &kp DOT   &kp FSLH &kp RCTRL    
+                                        &kp TAB  &kp W     &mo 1 &kp SPACE   &kp SPACE   &mo 2     &kp D     &trans
                                  &kp UP                                                                                            &kp UP
                         &kp LEFT &kp SPACE  &kp RIGHT                                                                    &kp LEFT  &kp SPACE  &kp RIGHT
                                  &kp DOWN                                                                                          &kp DOWN
@@ -62,7 +57,7 @@
                 &kp ESC    &kp N1   &kp N2   &kp N3    &kp N4    &kp N5                        &kp N6    &kp 7     &kp N8     &kp N9    &kp N0   &kp BSPC
                 &kp TAB    &kp A    &kp S    &kp D     &kp F     &kp G                         &kp H     &kp J     &kp K      &kp L     &kp SEMI &kp SQT
                 &sk LSHIFT &kp Z    &kp X    &kp C     &kp V     &kp B &trans      &kp C_MUTE  &kp N     &kp M     &kp COMMA  &kp DOT   &kp FSLH &kp RCTRL    
-                                        &kp TAB  &kp LCTRL     &sl 1 &kp SPACE   &kp SPACE   &sl 2     &kp D     &trans
+                                        &kp TAB  &kp CONTROL     &mo 1 &kp SPACE   &kp SPACE   &mo 2     &kp D     &trans
                                  &kp UP                                                                                            &kp UP
                         &kp LEFT &kp SPACE  &kp RIGHT                                                                    &kp LEFT  &kp SPACE  &kp RIGHT
                                  &kp DOWN                                                                                          &kp DOWN
@@ -84,7 +79,7 @@
         //                                 |  (opt)  |    ALT  | RETURN  |  SPACE  |   |   TAB   |   BSPC  |   WIN   |  (opt)  |
         // (5 way)     
             bindings = <
-                &kp F1    &kp F2    &kp F3    &kp F4     &kp F5     &kp F6                     &kp F7     &kp F8     &kp F9      &kp F10     &kp F11    &kp F12
+                &kp ESC    &kp Q    &kp W    &kp E     &kp R     &kp T                     &kp Y     &kp U     &kp I      &kp O     &kp P    &kp BSPC
                 &kp TAB    &kp A    &kp S    &kp D     &kp F     &kp G                     &kp H     &kp J     &kp K      &kp L     &kp SEMI &kp SQT
                 &sk LSHIFT &kp Z    &kp X    &kp C     &kp V     &kp B &trans  &kp C_MUTE  &kp N     &kp M     &kp COMMA &kp DOT   &kp FSLH &kp RCTRL    
                                         &kp TAB  &kp W     &kp E &kp R   &kp SPACE   &kp S     &kp D     &kp F
