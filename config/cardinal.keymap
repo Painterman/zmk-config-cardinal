@@ -113,10 +113,10 @@
                                  &none                                                                                          &none
                     >;
             sensor-bindings = <
-                        &none
-                        &none
-                        &none
-                        &none
+                        &inc_dec_kp SPACE SPACE 
+                        &inc_dec_kp SPACE SPACE 
+                        &inc_dec_kp SPACE SPACE 
+                        &inc_dec_kp SPACE SPACE 
             >;
         };
 
