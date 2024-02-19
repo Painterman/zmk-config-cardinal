@@ -9,17 +9,68 @@
         default_layer {
         // --------------------------------------------------------------------------------------------------------------------------------------------------------------------
         //Testing layout, not configured at all
-        //   |   ESC   |    Q    |    W    |    E    |    R    |    T    |                       |    Y    |    U    |    I    |    O    |    P    |    \    |
+        //   |   ESC   |    Q    |    W    |    E    |    R    |    T    |                       |    Y    |    U    |    I    |    O    |    P    |  BSPC  |
+        //   |   TAB   |    A    |    S    |    D    |    F    |    G    |                       |    H    |    J    |    K    |    L    |    ;    |    '   |
+        //   |  SHIFT  |    Z    |    X    |    C    |    V    |    B    |  (opt)  |   |  (opt)  |    N    |    M    |    ,    |    .    |    /    |  ENTER |
+        //                                 |  (opt)  |    ALT  | RETURN  |  SPACE  |   |   TAB   |   BSPC  |   WIN   |  (opt)  |
+        // (5 way)     
+            bindings = <
+                &kp ESC    &kp Q    &kp W    &kp E     &kp R     &kp T                            &kp Y     &kp U     &kp I      &kp O     &kp P    &kp BSPC
+                &kp TAB    &kp A    &kp S    &kp D     &kp F     &kp G                            &kp H     &kp J     &kp K      &kp L     &kp SEMI &kp SQT
+                &sk LSHIFT &kp Z    &kp X    &kp C     &kp V     &kp B    &none       &kp C_MUTE  &kp N     &kp M     &kp COMMA  &kp DOT   &kp FSLH &kp ENTER    
+                                        &kp LGUI(TAB)  &sk LCTRL &sl 1    &kp SPACE   &kp SPACE   &sl 2     &sk LGUI  &none
+                                 &kp UP                                                                                            &kp UP
+                        &kp LEFT &kp SPACE  &kp RIGHT                                                                    &kp LEFT  &kp SPACE  &kp RIGHT
+                                 &kp DOWN                                                                                          &kp DOWN
+                    >;
+            sensor-bindings = <
+                        &change_tab 
+                        &inc_dec_kp SPACE SPACE 
+                        &inc_dec_kp SPACE SPACE 
+                        &inc_dec_kp C_VOL_UP C_VOL_DN
+            >;
+        };
+
+        num_layer {
+        // --------------------------------------------------------------------------------------------------------------------------------------------------------------------
+        //Testing layout, not configured at all
+        //   |   ESC   |    Q    |    W    |    E    |    R    |    T    |                       |    Y    |    U    |    I    |    O    |    P    |    BSPC    |
         //   |   TAB   |    A    |    S    |    D    |    F    |    G    |                       |    H    |    J    |    K    |    L    |    ;    |    '    |
         //   |  SHIFT  |    Z    |    X    |    C    |    V    |    B    |  (opt)  |   |  (opt)  |    N    |    M    |    ,    |    .    |    /    |  R CTRL |
         //                                 |  (opt)  |    ALT  | RETURN  |  SPACE  |   |   TAB   |   BSPC  |   WIN   |  (opt)  |
         // (5 way)     
             bindings = <
-                &kp ESC    &kp Q    &kp W    &kp E     &kp R     &kp T                           &kp Y     &kp U     &kp I      &kp O     &kp P    &kp BSLH
-                &kp TAB    &kp A    &kp S    &kp D     &kp F     &kp G                           &kp H     &kp J     &kp K      &kp L     &kp SEMI &kp SQT
-                &kp LSHIFT &kp Z    &kp X    &kp C     &kp V     &kp B     &kp SPACE &kp SPACE   &kp N     &kp M     &kp COMMA  &kp DOT   &kp FSLH &kp RCTRL
-                                             &kp HOME  &kp V     &kp SPACE &kp SPACE  &kp TAB    &kp TAB   &kp BSPC  &kp HOME
-                                 &kp UP                                                                                            &kp UP
+                &trans    &kp N1   &kp N2   &kp N3    &kp N4    &kp N5                        &kp N6   &kp 7     &kp N8   &kp N9    &kp N0   &trans
+                &trans    &none    &none    &none    &none     &none                          &none    &none     &none    &none     &none    &trans
+                &trans    &none    &none    &none    &none     &none      &trans      &trans  &none    &none     &none    &none     &none    &trans   
+                                          &trans      &trans    &trans    &trans      &trans  &trans    &trans    &trans
+                                 &kp W                                                                                     &kp UP
+                        &kp A    &none  &kp D                                                                    &kp LEFT  &kp SPACE  &kp RIGHT
+                                 &kp S                                                                                     &kp DOWN
+                    >;
+            sensor-bindings = <
+                        &change_tab 
+                        &inc_dec_kp SPACE SPACE 
+                        &inc_dec_kp SPACE SPACE 
+                        &inc_dec_kp C_VOL_UP C_VOL_DN
+            >;
+        };
+
+        fun_layer {
+        // --------------------------------------------------------------------------------------------------------------------------------------------------------------------
+        //Testing layout, not configured at all
+        //   |   ESC   |    Q    |    W    |    E    |    R    |    T    |                       |    Y    |    U    |    I    |    O    |    P    |    BSPC    |
+        //   |   TAB   |    A    |    S    |    D    |    F    |    G    |                       |    H    |    J    |    K    |    L    |    ;    |    '    |
+        //   |  SHIFT  |    Z    |    X    |    C    |    V    |    B    |  (opt)  |   |  (opt)  |    N    |    M    |    ,    |    .    |    /    |  R CTRL |
+        //                                 |  (opt)  |    ALT  | RETURN  |  SPACE  |   |   TAB   |   BSPC  |   WIN   |  (opt)  |
+        // (5 way)     
+            bindings = <
+
+                &kp F11    &kp F1   &kp F2   &kp F3    &kp F4    &kp F5                        &kp F6   &kp F7     &kp F8   &kp F9    &kp F10   &kp F12
+                &trans    &none    &none    &none    &none     &none                          &none    &none     &none    &none     &none    &trans
+                &trans    &none    &none    &none    &none     &none      &trans      &trans  &none    &none     &none    &none     &none    &trans   
+                                          &trans      &trans    &trans    &trans      &trans  &trans    &trans    &trans
+                                  &kp UP                                                                                            &kp UP
                         &kp LEFT &kp SPACE  &kp RIGHT                                                                    &kp LEFT  &kp SPACE  &kp RIGHT
                                  &kp DOWN                                                                                          &kp DOWN
                     >;
@@ -30,6 +81,32 @@
                         &inc_dec_kp PG_UP PG_DN
             >;
         };
+
+        ctrl_layer {
+        // --------------------------------------------------------------------------------------------------------------------------------------------------------------------
+        //Testing layout, not configured at all
+        //   |   ESC   |    Q    |    W    |    E    |    R    |    T    |                       |    Y    |    U    |    I    |    O    |    P    |    BSPC    |
+        //   |   TAB   |    A    |    S    |    D    |    F    |    G    |                       |    H    |    J    |    K    |    L    |    ;    |    '    |
+        //   |  SHIFT  |    Z    |    X    |    C    |    V    |    B    |  (opt)  |   |  (opt)  |    N    |    M    |    ,    |    .    |    /    |  R CTRL |
+        //                                 |  (opt)  |    ALT  | RETURN  |  SPACE  |   |   TAB   |   BSPC  |   WIN   |  (opt)  |
+        // (5 way)     
+            bindings = <
+                &none    &none    &none         &none        &none         &none                          &none    &none     &none    &none     &none    &none
+                &none    &none    &bt BT_SEL 4  &bt BT_SEL 3 &bt BT_SEL 2  &bt BT_SEL 1                   &none    &none     &none    &none     &none    &none
+                &none    &none    &none         &none        &none         &none    &none    &none        &none    &none     &none    &none     &none    &none 
+                                                &none        &none         &none    &none    &none        &none    &none     &none    
+                                 &none                                                                                          &none
+                        &none &none  &none                                                                    &none &none &none
+                                 &none                                                                                          &none
+                    >;
+            sensor-bindings = <
+                        &inc_dec_kp SPACE SPACE 
+                        &inc_dec_kp SPACE SPACE 
+                        &inc_dec_kp SPACE SPACE 
+                        &inc_dec_kp SPACE SPACE 
+            >;
+        };
+
     };
 };
 
