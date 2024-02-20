@@ -50,7 +50,7 @@
             compatible = "zmk,behavior-hold-tap";
             label = "SHIFTCAPS";  
             bindings = <&kp>, <&sk>;
-            #bindings-cells = <2>;
+            bindings-cells = <2>;
             flavor = "tap-preferred";
             tapping-term-ms = <200>;
             quick-tap-ms = <125>;
