@@ -15,19 +15,19 @@
         ctrlayer {
             timeout-ms = <70>;
             key-positions = <38 41>;
-            bindings = <&sl CTRL_LAYER>;
+            bindings = <&sl 4>;
         };
 
         funlayerR {
             timeout-ms = <70>;
             key-positions = <38 39>;
-            bindings = <&sl CTRL_LAYER>;
+            bindings = <&sl 3>;
         };
 
         funlayerL {
             timeout-ms = <70>;
             key-positions = <40 41>;
-            bindings = <&sl CTRL_LAYER>;
+            bindings = <&sl 3>;
         };
     };
 
