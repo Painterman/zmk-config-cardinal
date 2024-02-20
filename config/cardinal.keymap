@@ -5,6 +5,47 @@
 
 
 / {
+
+    combos {
+        compatible = "zmk,combos";
+
+        ctrlayer {
+            timeout-ms = <70>;
+            key-positions = <38 41>;
+            bindings = <&sl 4>;
+        };
+
+        funlayerR {
+            timeout-ms = <70>;
+            key-positions = <38 39>;
+            bindings = <&sl 3>;
+        };
+
+        funlayerL {
+            timeout-ms = <70>;
+            key-positions = <40 41>;
+            bindings = <&sl 3>;
+        };
+    };
+
+    behaviors {
+
+        change_tab: change_tab {
+            compatible = "zmk,behavior-sensor-rotate";
+            #sensor-binding-cells = <0>;
+            bindings = <&kp LC(LS(TAB))>, <&kp LC(TAB)>;
+        };
+
+          shcps: shcps {
+            compatible = "zmk,behavior-hold-tap";
+            bindings = <&kp>, <&sk>;
+            #binding-cells = <2>;
+            flavor = "tap-preferred";
+            tapping-term-ms = <200>;
+            quick-tap-ms = <125>;
+        };
+
+    };  
     
     keymap {
         compatible = "zmk,keymap";
