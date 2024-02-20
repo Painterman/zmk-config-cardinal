@@ -68,7 +68,7 @@
                                  &kp DOWN                                                                                          &kp DOWN
                     >;
             sensor-bindings = < 
-                        &inc_dec_kp SPACE SPACE 
+                        &change_tab 
                         &inc_dec_kp SPACE SPACE 
                         &inc_dec_kp SPACE SPACE 
                         &inc_dec_kp C_VOL_UP C_VOL_DN
@@ -100,81 +100,6 @@
             >;
         };
 
-        symbol_layer {
-        // --------------------------------------------------------------------------------------------------------------------------------------------------------------------
-        //Testing layout, not configured at all
-        //   |   ESC   |    Q    |    W    |    E    |    R    |    T    |                       |    Y    |    U    |    I    |    O    |    P    |    BSPC    |
-        //   |   TAB   |    A    |    S    |    D    |    F    |    G    |                       |    H    |    J    |    K    |    L    |    ;    |    '    |
-        //   |  SHIFT  |    Z    |    X    |    C    |    V    |    B    |  (opt)  |   |  (opt)  |    N    |    M    |    ,    |    .    |    /    |  R CTRL |
-        //                                 |  (opt)  |    ALT  | RETURN  |  SPACE  |   |   TAB   |   BSPC  |   WIN   |  (opt)  |
-        // (5 way)     
-            bindings = <
-                &trans    &kp N1   &kp RALT(N2)   &kp RALT(N3)    &kp RALT(SINGLE_QUOTE)    &kp RALT(BACKSLASH)                    &kp ASTRK     &kp LPAR     &kp RALT(LBKT)  &kp RALT(RBKT)   &kp N0   &trans
-                &trans    &none    &none          &none           &none                     &none                                  &none         &none        &none         &none          &none    &kp MINUS
-                &trans    &none    &none          &none           &none                     &none             &trans      &trans   &none         &none        &none         &none          &none    &trans   
-                                                  &trans        &trans                    &trans            &trans      &trans   &to 2         &trans       &trans
-                                 &kp W                                                                                     &kp UP
-                        &kp A    &none  &kp D                                                                    &kp LEFT  &kp SPACE  &kp RIGHT
-                                 &kp S                                                                                     &kp DOWN
-                    >;
-            sensor-bindings = <
-                        &change_tab 
-                        &inc_dec_kp SPACE SPACE 
-                        &inc_dec_kp SPACE SPACE 
-                        &inc_dec_kp C_VOL_UP C_VOL_DN
-            >;
-        };
-
-        fun_layer {
-        // --------------------------------------------------------------------------------------------------------------------------------------------------------------------
-        //Testing layout, not configured at all
-        //   |   ESC   |    Q    |    W    |    E    |    R    |    T    |                       |    Y    |    U    |    I    |    O    |    P    |    BSPC    |
-        //   |   TAB   |    A    |    S    |    D    |    F    |    G    |                       |    H    |    J    |    K    |    L    |    ;    |    '    |
-        //   |  SHIFT  |    Z    |    X    |    C    |    V    |    B    |  (opt)  |   |  (opt)  |    N    |    M    |    ,    |    .    |    /    |  R CTRL |
-        //                                 |  (opt)  |    ALT  | RETURN  |  SPACE  |   |   TAB   |   BSPC  |   WIN   |  (opt)  |
-        // (5 way)     
-            bindings = <
-
-                &kp F11    &kp F1   &kp F2   &kp F3    &kp F4    &kp F5                       &kp F6   &kp F7     &kp F8   &kp F9    &kp F10   &kp F12
-                &trans    &none    &none    &none    &none     &none                          &none    &none     &none    &none     &none    &trans
-                &trans    &none    &none    &none    &none     &none      &trans     &trans   &none    &none     &none    &none     &none    &trans   
-                                          &trans     &trans    &trans    &trans      &trans   &trans   &trans    &trans
-                                  &kp UP                                                                                            &kp UP
-                        &kp LEFT &kp SPACE  &kp RIGHT                                                                    &kp LEFT  &kp SPACE  &kp RIGHT
-                                 &kp DOWN                                                                                          &kp DOWN
-                    >;
-            sensor-bindings = <
-                        &change_tab
-                        &inc_dec_kp SPACE SPACE 
-                        &inc_dec_kp SPACE SPACE 
-                        &inc_dec_kp C_VOL_UP C_VOL_DN
-            >;
-        };
-
-        ctrl_layer {
-        // --------------------------------------------------------------------------------------------------------------------------------------------------------------------
-        //Testing layout, not configured at all
-        //   |   ESC   |    Q    |    W    |    E    |    R    |    T    |                       |    Y    |    U    |    I    |    O    |    P    |    BSPC    |
-        //   |   TAB   |    A    |    S    |    D    |    F    |    G    |                       |    H    |    J    |    K    |    L    |    ;    |    '    |
-        //   |  SHIFT  |    Z    |    X    |    C    |    V    |    B    |  (opt)  |   |  (opt)  |    N    |    M    |    ,    |    .    |    /    |  R CTRL |
-        //                                 |  (opt)  |    ALT  | RETURN  |  SPACE  |   |   TAB   |   BSPC  |   WIN   |  (opt)  |
-        // (5 way)     
-            bindings = <
-                &none    &none           &none         &none        &none         &bt BT_CLR                            &none    &none     &none    &none     &none    &none
-                &none    &bt BT_SEL 4    &bt BT_SEL 3  &bt BT_SEL 2 &bt BT_SEL 1  &bt BT_SEL 0                          &none    &none     &none    &none     &none    &none
-                &none    &none           &none         &none        &none         &none           &none    &none        &none    &none     &none    &none     &none    &none 
-                                                       &none        &none         &none           &none    &none        &none    &none     &none    
-                                 &none                                                                              &none
-                        &none &none  &none                                                                    &none &none &none
-                                 &none                                                                              &none
-                    >;
-            sensor-bindings = <
-                        &inc_dec_kp SPACE SPACE 
-                        &inc_dec_kp SPACE SPACE 
-                        &inc_dec_kp SPACE SPACE 
-                        &inc_dec_kp SPACE SPACE 
-            >;
-        };
 
     };
 };
