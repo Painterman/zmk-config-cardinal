@@ -112,7 +112,7 @@
                 &trans    &kp N1   &kp RALT(N2)   &kp RALT(N3)    &kp RALT(SINGLE_QUOTE)    &kp RALT(BACKSLASH)                    &kp ASTRK     &kp LPAR     &kp RALT(LBKT)  &kp RALT(RBKT)   &kp N0   &trans
                 &trans    &none    &none          &none           &none                     &none                                  &none         &none        &none         &none          &none    &kp MINUS
                 &trans    &none    &none          &none           &none                     &none             &trans      &trans   &none         &none        &none         &none          &none    &trans   
-                                                    &trans        &trans                    &trans            &trans      &trans   &to 2         &trans       &trans
+                                                  &trans        &trans                    &trans            &trans      &trans   &to 2         &trans       &trans
                                  &kp W                                                                                     &kp UP
                         &kp A    &none  &kp D                                                                    &kp LEFT  &kp SPACE  &kp RIGHT
                                  &kp S                                                                                     &kp DOWN
@@ -161,7 +161,7 @@
         // (5 way)     
             bindings = <
                 &none    &none           &none         &none        &none         &bt BT_CLR                            &none    &none     &none    &none     &none    &none
-                &none    &bt BT_SEL 5    &bt BT_SEL 4  &bt BT_SEL 3 &bt BT_SEL 2  &bt BT_SEL 1                          &none    &none     &none    &none     &none    &none
+                &none    &bt BT_SEL 4    &bt BT_SEL 3  &bt BT_SEL 2 &bt BT_SEL 1  &bt BT_SEL 0                          &none    &none     &none    &none     &none    &none
                 &none    &none           &none         &none        &none         &none           &none    &none        &none    &none     &none    &none     &none    &none 
                                                        &none        &none         &none           &none    &none        &none    &none     &none    
                                  &none                                                                              &none
