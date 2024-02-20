@@ -48,9 +48,8 @@
 
         shcps: shcps {
             compatible = "zmk,behavior-hold-tap";
-            label = "SHIFTCAPS";  
             bindings = <&kp>, <&sk>;
-            #bindings-cells = <2>;
+            #binding-cells = <2>;
             flavor = "tap-preferred";
             tapping-term-ms = <200>;
             quick-tap-ms = <125>;
@@ -119,7 +118,7 @@
         //                                 |  (opt)  |    ALT  | RETURN  |  SPACE  |   |   TAB   |   BSPC  |   WIN   |  (opt)  |
         // (5 way)     
             bindings = <
-                &trans    &kp N1   &kp RALT(N2)   &kp RALT(N3)    &kp RALT(SINGLE_QUOTE)    &kp RALT(BACKSLASH)                      &kp ASTRK     &kp LPAR     &kp RALT(LBKT)  &kp RALT(RBKT)   &kp N0   &trans
+                &trans    &kp N1   &kp RALT(N2)   &kp RALT(N3)    &kp RALT(SINGLE_QUOTE)    &kp RALT(BACKSLASH)                    &kp ASTRK     &kp LPAR     &kp RALT(LBKT)  &kp RALT(RBKT)   &kp N0   &trans
                 &trans    &none    &none          &none           &none                     &none                                  &none         &none        &none         &none          &none    &kp MINUS
                 &trans    &none    &none          &none           &none                     &none             &trans      &trans   &none         &none        &none         &none          &none    &trans   
                                                     &trans        &trans                    &trans            &trans      &trans   &to 2         &trans       &trans
