@@ -29,14 +29,14 @@
             key-positions = <38 39>;
             bindings = <&sl CTRL_LAYER>;
 
-        }
+        };
 
         funlayerL {
             timeout-ms = <70>;
             key-positions = <40 41>;
             bindings = <&sl CTRL_LAYER>;
 
-        }
+        };
     }
 
     behaviors {
