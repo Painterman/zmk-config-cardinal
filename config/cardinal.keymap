@@ -48,7 +48,7 @@
 
         shcps: shftcps {
             compatible = "zmk,behavior-hold-tap";
-            label = "SHIFTCAPS"; kp 
+            label = "SHIFTCAPS";  
             bindings = <&kp>, <&sk>;
             #bindings-cells = <2>;
             flavor = "tap-preferred";
