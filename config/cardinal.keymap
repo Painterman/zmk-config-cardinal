@@ -46,11 +46,11 @@
             bindings = <&kp LC(LS(TAB))>, <&kp LC(TAB)>;
         };
 
-        shcps: shftcps {
+        shcps: shcps {
             compatible = "zmk,behavior-hold-tap";
             label = "SHIFTCAPS";  
             bindings = <&kp>, <&sk>;
-            bindings-cells = <2>;
+            #bindings-cells = <2>;
             flavor = "tap-preferred";
             tapping-term-ms = <200>;
             quick-tap-ms = <125>;
@@ -170,13 +170,13 @@
         //                                 |  (opt)  |    ALT  | RETURN  |  SPACE  |   |   TAB   |   BSPC  |   WIN   |  (opt)  |
         // (5 way)     
             bindings = <
-                &none    &none    &none         &none        &none         &bt BT_CLR                          &none    &none     &none    &none     &none    &none
-                &none    &bt BT_SEL 5    &bt BT_SEL 4  &bt BT_SEL 3 &bt BT_SEL 2  &bt BT_SEL 1                   &none    &none     &none    &none     &none    &none
-                &none    &none    &none         &none        &none         &none    &none    &none        &none    &none     &none    &none     &none    &none 
-                                                &none        &none         &none    &none    &none        &none    &none     &none    
-                                 &none                                                                                          &none
+                &none    &none           &none         &none        &none         &bt BT_CLR                            &none    &none     &none    &none     &none    &none
+                &none    &bt BT_SEL 5    &bt BT_SEL 4  &bt BT_SEL 3 &bt BT_SEL 2  &bt BT_SEL 1                          &none    &none     &none    &none     &none    &none
+                &none    &none           &none         &none        &none         &none           &none    &none        &none    &none     &none    &none     &none    &none 
+                                                       &none        &none         &none           &none    &none        &none    &none     &none    
+                                 &none                                                                              &none
                         &none &none  &none                                                                    &none &none &none
-                                 &none                                                                                          &none
+                                 &none                                                                              &none
                     >;
             sensor-bindings = <
                         &inc_dec_kp SPACE SPACE 
