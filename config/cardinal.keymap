@@ -20,13 +20,13 @@
 #define LD  54
 #define LL  48
 #define LR  50
-#define LC  49
+#define LCenter  49
 
 #define RU  47
 #define RD  55
 #define RL  51
 #define RR  53
-#define RC  52
+#define RCenter  52
 
 / {
 
