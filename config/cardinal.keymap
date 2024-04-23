@@ -105,7 +105,7 @@
         // Default layer, pretty standar
         //   |   ESC   |    Q    |    W    |    E    |    R    |    T    |                       |    Y    |    U    |    I    |    O    |    P    |  BSPC  |
         //   |   TAB   |    A    |    S    |    D    |    F    |    G    |                       |    H    |    J    |    K    |    L    |    ;    |    '   |
-        //   |  SHIFT  |    Z    |    X    |    C    |    V    |    B    |  none   |   | Play/P  |    N    |    M    |    ,    |    .    |    -    |  ENTER |
+        //   |  RALT   |    Z    |    X    |    C    |    V    |    B    |  none   |   | Play/P  |    N    |    M    |    ,    |    .    |    -    |  ENTER |
         //                                 |  WinTab | NumLayer|  BSPC   |  LCRTL  |   |  SHIFT  |  SPACE  |   SymLayer |   none  |
         // (5 way)     
             bindings = <
@@ -130,7 +130,7 @@
         // Num layer, pretty sparce
         //   |   ESC   |    1    |    2    |    3    |    4    |    5    |                       |    6    |    7    |    8    |    9    |    0    |  BSPC   |
         //   |   TAB   |         |         |         |         |         |                       |         |         |         |         |         |    `    |
-        //   |  SHIFT  |         |         |         |         |         |  none   |   | Play/P  |         |         |         |    ·    |         |  Enter  |
+        //   |  RALT   |         |         |         |         |         |  none   |   | Play/P  |         |         |         |    ·    |         |  Enter  |
         //                                 |  WinTab | NumLayer|  BSPC   |  LCRTL  |   |  SHIFT  |  SPACE  |   SymLayer |   none  |
         // (5 way)     
             bindings = <
@@ -155,13 +155,13 @@
         // Symbol layer, trying to maintain shft+number positions of spanish layout, and adding the rest in more or less nice position
         //   |   ESC   |    !    |    @    |    #    |    ~    |    %    |                       |    &    |    /    |    (    |    )    |    ?    |   BSPC   |
         //   |   TAB   |    ¡    |    +    |    *    |    ^    |    =    |                       |    ¬    |    |    |    [    |    ]    |    ¿    |    "     |
-        //   |  SHIFT  |    <    |    >    |    º    |    ª    |    ç    |  none   |   | Play/P  |         |    \    |    {    |    }    |         |  ENTER   |
+        //   |  RALT   |    <    |    >    |    º    |    ª    |    ç    |  none   |   | Play/P  |    "    |    \    |    {    |    }    |         |  ENTER   |
         //                                 |  WinTab | NumLayer|  BSPC   |  LCRTL  |   |  SHIFT  |  SPACE  | SymLayer |   none  |
         // (5 way)     
             bindings = <
                 &trans   &kp ES_EXCL  &kp ES_AT   &kp ES_HASH  &kp ES_TILDE &kp ES_PRCNT                       &kp ES_AMPS &kp ES_FSLH  &kp ES_LPAR  &kp ES_RPAR  &kp ES_QMARK  &trans
-                &trans   &kp ES_IEXCL &kp ES_PLUS &kp ES_STAR  &kp ES_CARET &kp ES_EQUAL                       &kp ES_NOT  &kp ES_PIPE  &kp ES_LBKT  &kp ES_RBKT  &kp ES_IQMARK &trans
-                &trans   &kp ES_LT    &kp ES_GT   &kp ES_ORDM  &kp ES_ORDF  &kp ES_C_CEDILLA &trans    &trans  &none       &kp ES_BSLH  &kp ES_LBRC  &kp ES_RBRC  &none         &trans   
+                &trans   &kp ES_IEXCL &kp ES_PLUS &kp ES_STAR  &kp ES_CARET &kp ES_EQUAL                       &kp ES_NOT  &kp ES_PIPE  &kp ES_LBKT  &kp ES_RBKT  &kp ES_IQMARK &kp ES_DQT
+                &trans   &kp ES_LT    &kp ES_GT   &kp ES_ORDM  &kp ES_ORDF  &kp ES_C_CEDILLA &trans    &trans  &kp ES_DQT  &kp ES_BSLH  &kp ES_LBRC  &kp ES_RBRC  &none         &trans   
                                                   &trans        &trans      &trans           &trans    &trans  &trans      &to 2        &none
                                  &kp W                                                                                     &kp UP
                         &kp A    &none  &kp D                                                                    &kp LEFT  &kp SPACE  &kp RIGHT
@@ -180,7 +180,7 @@
         // Function layer plus extra symbols, things i dont use
         //   |   F11   |   F1    |    F2   |    F3   |    F4   |   F5    |                       |    F6   |    F7   |    F8   |    F9   |    F20  |    F12  |
         //   |   TAB   |         |         |         |         |         |                       |         |         |         |         |         |         |
-        //   |  SHIFT  |         |         |         |         |         |  none   |   | Play/P  |         |         |         |         |         |  ENTER  |
+        //   |  RALT   |         |         |         |         |         |  none   |   | Play/P  |         |         |         |         |         |  ENTER  |
         //                                 |  WinTab | NumLayer|  BSPC   |  LCRTL  |   |  SHIFT  |  SPACE  | SymLayer |   none  |
         // (5 way)     
             bindings = <
