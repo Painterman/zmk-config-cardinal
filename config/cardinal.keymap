@@ -7,6 +7,7 @@
 
 #include "keys_es.h"
 
+
 //Support for key helpers, hillside fits perfectly because of the 42 base keys plus the encoders,
 // LH4, RH4, LH3 and RH3 are the encoders clickdown
 #include "zmk-helpers/helper.h"
@@ -31,6 +32,11 @@
 #define RL  51
 #define RR  53
 #define RCenter  52
+
+// Interesting feature, usefull for cases with hard to reach on/off switches
+&soft_off {
+    hold-time-ms = <5000>; // Only turn off it the key is held for 5 seconds or longer.
+};
 
 / {
 
@@ -64,7 +70,7 @@
             bindings = <&kp LC(LS(TAB))>, <&kp LC(TAB)>;
         };
 
-          shcps: shcps {
+        shcps: shcps {
             compatible = "zmk,behavior-hold-tap";
             bindings = <&kp>, <&sk>;
             #binding-cells = <2>;
@@ -72,6 +78,22 @@
             tapping-term-ms = <200>;
             quick-tap-ms = <125>;
         };
+        
+        es_til_sqt: es_tilde_squote {
+            //Custom tap dance, in spanish tilde (á) is common, not so much squote(I'm) so this convines both keys with similar usages, 
+            //also integrates ? into the mix(shifted squote) which is pretty nice imho 
+            compatible = "zmk,behavio-tap-dance";
+            #binding-cells = <0>;
+            tapping-term-ms = <180>;
+            bindings = <&kp ES_ACUTE , &kp ES_SQT>
+        }
+
+        smart_shift : smart_shift {
+            compatible = "zmk,behavio-tap-dance";
+            #binding-cells = <0>;
+            tapping-term-ms = <180>;
+            bindings = <&sk LSHFT , &caps_word>
+        }
 
     };  
     
@@ -80,17 +102,17 @@
         
         default_layer {
         // --------------------------------------------------------------------------------------------------------------------------------------------------------------------
-        //Testing layout, not configured at all
+        // Default layer, pretty standar
         //   |   ESC   |    Q    |    W    |    E    |    R    |    T    |                       |    Y    |    U    |    I    |    O    |    P    |  BSPC  |
         //   |   TAB   |    A    |    S    |    D    |    F    |    G    |                       |    H    |    J    |    K    |    L    |    ;    |    '   |
         //   |  SHIFT  |    Z    |    X    |    C    |    V    |    B    |  none   |   | Play/P  |    N    |    M    |    ,    |    .    |    -    |  ENTER |
-        //                                 |  WinTab | NumLayer|  BSPC   |  LCRTL  |   |  SHIFT  |  SPACE  |   SHIFT |   none  |
+        //                                 |  WinTab | NumLayer|  BSPC   |  LCRTL  |   |  SHIFT  |  SPACE  |   SymLayer |   none  |
         // (5 way)     
             bindings = <
-                &kp ESC    &kp Q    &kp W    &kp E     &kp R     &kp T                                 &kp Y     &kp U       &kp I      &kp O     &kp P          &kp BSPC
-                &kp TAB    &kp A    &kp S    &kp D     &kp F     &kp G                                 &kp H     &kp J       &kp K      &kp L     &kp ES_N_TILDE &kp ES_UMLAUT
-                &sk LSHIFT &kp Z    &kp X    &kp C     &kp V     &kp B    &none      &kp C_PLAY_PAUSE  &kp N     &kp M       &kp COMMA  &kp DOT   &kp ES_MINUS   &kp ENTER    
-                                        &kp LG(TAB)    &sl 1     &kp BSPC &sk LCTRL  &sk LSHIFT        &kp SPACE &kp LSHIFT  &none
+                &kp ESC      &kp Q    &kp W    &kp E     &kp R     &kp T                                 &kp Y     &kp U       &kp I      &kp O     &kp P          &kp DEL
+                &kp TAB      &kp A    &kp S    &kp D     &kp F     &kp G                                 &kp H     &kp J       &kp K      &kp L     &kp ES_N_TILDE &es_til_sqt
+                &sk RALT     &kp Z    &kp X    &kp C     &kp V     &kp B    &none      &kp C_PLAY_PAUSE  &kp N     &kp M       &kp COMMA  &kp DOT   &kp ES_MINUS   &kp ENTER    
+                                          &kp LG(TAB)    &sl 1     &kp BSPC &sk LCTRL  &smart_shift      &kp SPACE &sl 2       &none
                                  &kp UP                                                                                            &kp UP
                         &kp LEFT &sk LGUI  &kp RIGHT                                                                    &kp LEFT  &kp SPACE  &kp RIGHT
                                  &kp DOWN                                                                                          &kp DOWN
@@ -105,17 +127,17 @@
 
         num_layer {
         // --------------------------------------------------------------------------------------------------------------------------------------------------------------------
-        //Testing layout, not configured at all
-        //   |   ESC   |    1    |    2    |    3    |    4    |    5    |                       |    6    |    7    |    8    |    9    |    0    |    BSPC    |
-        //   |   TAB   |    A    |    S    |    D    |    F    |    G    |                       |    H    |    J    |    K    |    L    |    ;    |    '    |
-        //   |  SHIFT  |    Z    |    X    |    C    |    V    |    B    |  (opt)  |   |  (opt)  |    N    |    M    |    ,    |    .    |    /    |  R CTRL |
-        //                                 |  (opt)  |    ALT  | RETURN  |  SPACE  |   |   TAB   |   BSPC  |   WIN   |  (opt)  |
+        // Num layer, pretty sparce
+        //   |   ESC   |    1    |    2    |    3    |    4    |    5    |                       |    6    |    7    |    8    |    9    |    0    |  BSPC   |
+        //   |   TAB   |         |         |         |         |         |                       |         |         |         |         |         |    `    |
+        //   |  SHIFT  |         |         |         |         |         |  none   |   | Play/P  |         |         |         |    ·    |         |  Enter  |
+        //                                 |  WinTab | NumLayer|  BSPC   |  LCRTL  |   |  SHIFT  |  SPACE  |   SymLayer |   none  |
         // (5 way)     
             bindings = <
-                &trans    &kp N1   &kp N2   &kp N3    &kp N4    &kp N5                       &kp N6   &kp N7    &kp N8   &kp N9    &kp N0   &trans
-                &trans    &none    &none    &none     &none     &none                        &none    &none     &none    &none     &none    &kp MINUS
-                &trans    &none    &none    &none     &none     &none    &trans      &trans  &none    &none     &none    &none     &none    &trans   
-                                          &trans      &to 1     &trans   &trans      &trans  &trans   &trans    &trans
+                &trans    &kp N1   &kp N2   &kp N3    &kp N4    &kp N5                       &kp N6   &kp N7    &kp N8   &kp N9        &kp N0   &trans
+                &trans    &none    &none    &none     &none     &none                        &none    &none     &none    &none         &none    &kp ES_GRAVE
+                &trans    &none    &none    &none     &none     &none    &trans     &trans   &none    &none     &none    &kp ES_MIDDOT &none    &trans   
+                                            &trans    &to 1     &trans   &trans     &trans   &trans   &trans    &trans
                                  &kp W                                                                                     &kp UP
                         &kp A    &none  &kp D                                                                    &kp LEFT  &kp SPACE  &kp RIGHT
                                  &kp S                                                                                     &kp DOWN
@@ -130,17 +152,17 @@
 
         symbol_layer {
         // --------------------------------------------------------------------------------------------------------------------------------------------------------------------
-        //Testing layout, not configured at all
-        //   |   ESC   |    Q    |    W    |    E    |    R    |    T    |                       |    Y    |    U    |    I    |    O    |    P    |   BSPC    |
-        //   |   TAB   |    A    |    S    |    D    |    F    |    G    |                       |    H    |    J    |    K    |    L    |    ;    |    '    |
-        //   |  SHIFT  |    Z    |    X    |    C    |    V    |    B    |  (opt)  |   |  (opt)  |    N    |    M    |    ,    |    .    |    /    |  R CTRL |
-        //                                 |  (opt)  |    ALT  | RETURN  |  SPACE  |   |   TAB   |   BSPC  |   WIN   |  (opt)  |
+        // Symbol layer, trying to maintain shft+number positions of spanish layout, and adding the rest in more or less nice position
+        //   |   ESC   |    !    |    @    |    #    |    ~    |    %    |                       |    &    |    /    |    (    |    )    |    ?    |   BSPC   |
+        //   |   TAB   |    ¡    |    +    |    *    |    ^    |    =    |                       |    ¬    |    |    |    [    |    ]    |    ¿    |    "     |
+        //   |  SHIFT  |    <    |    >    |    º    |    ª    |    ç    |  none   |   | Play/P  |         |    \    |    {    |    }    |         |  ENTER   |
+        //                                 |  WinTab | NumLayer|  BSPC   |  LCRTL  |   |  SHIFT  |  SPACE  | SymLayer |   none  |
         // (5 way)     
             bindings = <
-                &trans    &kp N1   &kp RA(N2)   &kp RA(N3)    &kp RA(SINGLE_QUOTE)    &kp RA(BSLH)                    &kp ASTRK     &kp LPAR     &kp RA(LBKT)  &kp RA(RBKT)   &kp N0   &trans
-                &trans    &none    &none          &none           &none                     &none                                  &none         &none        &none         &none          &none    &kp MINUS
-                &trans    &none    &none          &none           &none                     &none             &trans      &trans   &none         &none        &none         &none          &none    &trans   
-                                                  &trans        &trans                    &trans            &trans      &trans     &trans        &to 2        &none
+                &trans   &kp ES_EXCL  &kp ES_AT   &kp ES_HASH  &kp ES_TILDE &kp ES_PRCNT                       &kp ES_AMPS &kp ES_FSLH  &kp ES_LPAR  &kp ES_RPAR  &kp ES_QMARK  &trans
+                &trans   &kp ES_IEXCL &kp ES_PLUS &kp ES_STAR  &kp ES_CARET &kp ES_EQUAL                       &kp ES_NOT  &kp ES_PIPE  &kp ES_LBKT  &kp ES_RBKT  &kp ES_IQMARK &trans
+                &trans   &kp ES_LT    &kp ES_GT   &kp ES_ORDM  &kp ES_ORDF  &kp ES_C_CEDILLA &trans    &trans  &none       &kp ES_BSLH  &kp ES_LBRC  &kp ES_RBRC  &none         &trans   
+                                                  &trans        &trans      &trans           &trans    &trans  &trans      &to 2        &none
                                  &kp W                                                                                     &kp UP
                         &kp A    &none  &kp D                                                                    &kp LEFT  &kp SPACE  &kp RIGHT
                                  &kp S                                                                                     &kp DOWN
@@ -155,19 +177,19 @@
 
         fun_layer {
         // --------------------------------------------------------------------------------------------------------------------------------------------------------------------
-        //Testing layout, not configured at all
-        //   |   ESC   |    Q    |    W    |    E    |    R    |    T    |                       |    Y    |    U    |    I    |    O    |    P    |    BSPC    |
-        //   |   TAB   |    A    |    S    |    D    |    F    |    G    |                       |    H    |    J    |    K    |    L    |    ;    |    '    |
-        //   |  SHIFT  |    Z    |    X    |    C    |    V    |    B    |  (opt)  |   |  (opt)  |    N    |    M    |    ,    |    .    |    /    |  R CTRL |
-        //                                 |  (opt)  |    ALT  | RETURN  |  SPACE  |   |   TAB   |   BSPC  |   WIN   |  (opt)  |
+        // Function layer plus extra symbols, things i dont use
+        //   |   F11   |   F1    |    F2   |    F3   |    F4   |   F5    |                       |    F6   |    F7   |    F8   |    F9   |    F20  |    F12  |
+        //   |   TAB   |         |         |         |         |         |                       |         |         |         |         |         |         |
+        //   |  SHIFT  |         |         |         |         |         |  none   |   | Play/P  |         |         |         |         |         |  ENTER  |
+        //                                 |  WinTab | NumLayer|  BSPC   |  LCRTL  |   |  SHIFT  |  SPACE  | SymLayer |   none  |
         // (5 way)     
             bindings = <
 
-                &kp F11    &kp F1   &kp F2   &kp F3    &kp F4    &kp F5                       &kp F6   &kp F7     &kp F8   &kp F9    &kp F10   &kp F12
-                &trans    &none    &none    &none    &none     &none                          &none    &none     &none    &none     &none    &trans
+                &kp F11   &kp F1   &kp F2   &kp F3   &kp F4    &kp F5                         &kp F6   &kp F7    &kp F8   &kp F9    &kp F10  &kp F12
+                &trans    &none    &none    &none    &none     &none                          &none    &none     &none    &none     &none    &none
                 &trans    &none    &none    &none    &none     &none      &trans     &trans   &none    &none     &none    &none     &none    &trans   
                                           &trans     &trans    &trans    &trans      &trans   &trans   &trans    &trans
-                                  &kp UP                                                                                            &kp UP
+                                 &kp UP                                                                                            &kp UP
                         &kp LEFT &kp SPACE  &kp RIGHT                                                                    &kp LEFT  &kp SPACE  &kp RIGHT
                                  &kp DOWN                                                                                          &kp DOWN
                     >;
@@ -181,20 +203,20 @@
 
         ctrl_layer {
         // --------------------------------------------------------------------------------------------------------------------------------------------------------------------
-        //Testing layout, not configured at all
-        //   |   ESC   |    Q    |    W    |    E    |    R    |    T    |                       |    Y    |    U    |    I    |    O    |    P    |    BSPC    |
-        //   |   TAB   |    A    |    S    |    D    |    F    |    G    |                       |    H    |    J    |    K    |    L    |    ;    |    '    |
-        //   |  SHIFT  |    Z    |    X    |    C    |    V    |    B    |  (opt)  |   |  (opt)  |    N    |    M    |    ,    |    .    |    /    |  R CTRL |
-        //                                 |  (opt)  |    ALT  | RETURN  |  SPACE  |   |   TAB   |   BSPC  |   WIN   |  (opt)  |
+        // Control layer for the keyboard, bt and soft off
+        //   |       |         |         |        |        |  BTCLEAR |               |         |         |         |         |         |         |
+        //   |       |   BT4   |    BT3  |   BT2  |   BT1  |    BT0   |               |         |         |         |         |         |         |
+        //   |       |         |         |        |        | SOFT_OFF |     |   |     |         |         |         |         |         |         |
+        //                               |        |        |          |     |   |     |         |         |         |
         // (5 way)     
             bindings = <
-                &none    &none           &none         &none        &none         &bt BT_CLR                            &none    &none     &none    &none     &none    &none
-                &none    &bt BT_SEL 4    &bt BT_SEL 3  &bt BT_SEL 2 &bt BT_SEL 1  &bt BT_SEL 0                          &none    &none     &none    &none     &none    &none
-                &none    &none           &none         &none        &none         &none           &none    &none        &none    &none     &none    &none     &none    &none 
-                                                       &none        &none         &none           &none    &none        &none    &none     &none    
-                                 &none                                                                              &none
-                        &none &none  &none                                                                    &none &none &none
-                                 &none                                                                              &none
+                &none    &none         &none         &none        &none         &bt BT_CLR                      &none    &none     &none    &none     &none    &none
+                &none    &bt BT_SEL 4  &bt BT_SEL 3  &bt BT_SEL 2 &bt BT_SEL 1  &bt BT_SEL 0                    &none    &none     &none    &none     &none    &none
+                &none    &none         &none         &none        &none         &soft_off     &none    &none    &none    &none     &none    &none     &none    &none 
+                                                     &none        &none         &none         &none    &none    &none    &none     &none    
+                              &none                                                                              &none
+                        &none &none  &none                                                                 &none &none &none
+                              &none                                                                              &none
                     >;
             sensor-bindings = <
                         &inc_dec_kp SPACE SPACE 
