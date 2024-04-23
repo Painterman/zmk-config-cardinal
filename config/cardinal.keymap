@@ -85,14 +85,14 @@
             compatible = "zmk,behavior-tap-dance";
             #binding-cells = <0>;
             tapping-term-ms = <180>;
-            bindings = <&kp ES_ACUTE , &kp ES_SQT>;
+            bindings = <&kp ES_ACUTE> , <&kp ES_SQT>;
         };
 
         smart_shift : smart_shift {
             compatible = "zmk,behavior-tap-dance";
             #binding-cells = <0>;
             tapping-term-ms = <180>;
-            bindings = <&sk LSHFT , &caps_word>;
+            bindings = <&sk LSHFT> , <&caps_word>;
         };
 
     };  
