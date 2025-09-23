@@ -62,7 +62,7 @@
 		>;
 	};
 
-	kscan_6_column: kscan {
+	kscan_6_column: kscan_0 {
 		compatible = "zmk,kscan-gpio-matrix";
         diode-direction = "col2row";
 		row-gpios
@@ -74,7 +74,7 @@
 		    ;
 	};
     // Kscan for the 5 column version, here is the same, on each half not.
-    kscan_5_column: kscan {
+    kscan_5_column: kscan_1 {
 		compatible = "zmk,kscan-gpio-matrix";
         diode-direction = "col2row";
 		row-gpios
