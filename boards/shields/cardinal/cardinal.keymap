@@ -5,6 +5,7 @@
 // This is a base keymap intended for the keyboard to "just work" oftb, with nothing fancy and most keys available, based on
 // corne default layout and adding encoders and 5-way switches, on all layers they work as volume up/down and mute and as a joystick with the center being space
 // this is not efficient but should be used as a starting point for your own keymap.
+// If you are considering the use of ZMK Studio you will need to add the &studio_unlock somewere in your layout.
 
 / {
     keymap {

@@ -1,10 +1,27 @@
 #include "cardinal.dtsi" // Notice that the main dtsi files are included in the overlay.
 
-&default_transform {
+&default_transform_6c {
     col-offset = <6>;
 };
 
-&kscan0 {
+//Map for snapped column, the same due to thumb-1
+&default_transform_5c {
+    col-offset = <6>;
+};
+
+&kscan_6_column {
+    col-gpios
+        = <&pro_micro 14 GPIO_ACTIVE_HIGH> 
+        , <&pro_micro 15 GPIO_ACTIVE_HIGH> 
+        , <&pro_micro 18 GPIO_ACTIVE_HIGH> 
+        , <&pro_micro 19 GPIO_ACTIVE_HIGH> 
+        , <&pro_micro 20 GPIO_ACTIVE_HIGH> 
+        , <&pro_micro 21 GPIO_ACTIVE_HIGH>  // col-1 in the schematic
+        ;
+};
+
+//Map for snapped column, the same due to thumb-1
+&kscan_6_column {
     col-gpios
         = <&pro_micro 14 GPIO_ACTIVE_HIGH> 
         , <&pro_micro 15 GPIO_ACTIVE_HIGH> 
